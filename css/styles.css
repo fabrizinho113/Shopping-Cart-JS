@@ -104,6 +104,14 @@ header nav ul li.home a {
 header nav ul li.home a img {
   margin-right: 5px;
 }
+
+#github{
+  cursor: pointer;
+}
+
+.productScroll{
+  cursor: pointer;
+}
 /* HEADER -> SHOOPING BAG */
 .shopping-bag {
   padding: 10px 5px;
@@ -129,6 +137,7 @@ main {
   position: relative;
   top: 100px;
 }
+
 main .products-preview {
   width: 60%;
   height: calc(100vh - 100px);

@@ -1,3 +1,14 @@
+/* Github */
+const github = document.getElementById('github');
+
+function openInNewTab() {
+    window.open('https://github.com/fabrizinho113/Shopping-Cart-JS', '_blank').focus();
+}
+
+github.addEventListener("click", openInNewTab);
+
+/* ------------------------------------------------------------------------------------------------------- */
+
 const productsList = document.querySelector(".products-list");
 const seeMoreBtn = document.querySelector(".see-more-btn");
 const productScroll = document.querySelector(".productScroll");
@@ -18,29 +29,33 @@ const totalItemsCartElements = document.querySelector(".total-items-in-cart");
 
 // ESP: Mostrar o renderizar los productos
 // ENG: Render products
+
+let current_page = 1;
+let rows = 5;
+
 function renderProducts(){
-    products.forEach((product)=> {
-        productsElements.innerHTML += `
-        <div class="item ${product.console}">
-        <div class="item-container">
-            <div class="item-img">
-                <img src="${product.imgSrc}" alt="${product.name}">
-            </div>
-            <div class="desc">
-                <h2 class="productName">${product.name}</h2>
-                <h2 class="price"><small>$</small>${product.price}</h2>
-                <p class="stock">Stock Available: ${product.instock}</p>
-            </div>
-            <div class="add-to-wishlist">
-                <img src="${product.consoleIcon}" alt="add to wish list">
-            </div>
-            <div class="add-to-cart" id="buy" onclick="addToCart(${product.id})">
-                <img src="./assets/icons/bag-plus.png" alt="add to cart">
+		products.forEach((product)=> {
+            productsElements.innerHTML += `
+            <div class="item ${product.console}">
+            <div class="item-container">
+                <div class="item-img">
+                    <img src="${product.imgSrc}" alt="${product.name}">
+                </div>
+                <div class="desc">
+                    <h2 class="productName">${product.name}</h2>
+                    <h2 class="price"><small>$</small>${product.price}</h2>
+                    <p class="stock">Stock Available: ${product.instock}</p>
+                </div>
+                <div class="add-to-wishlist">
+                    <img src="${product.consoleIcon}" alt="add to wish list">
+                </div>
+                <div class="add-to-cart" id="buy" onclick="addToCart(${product.id})">
+                    <img src="./assets/icons/bag-plus.png" alt="add to cart">
+                </div>
             </div>
         </div>
-    </div>
-        `;
-    });
+            `;
+        });
 }
 
 renderProducts();
@@ -114,9 +129,9 @@ function renderCartItems(){
                         <small>$</small>${item.price}
                     </div>
                     <div class="units">
-                        <div class="btn minus" onclick="changeNumberOfUnits('minus', ${item.id})">-</div>
+                        <div class="btn minus" onclick="changeNumberOfUnits('minus', ${item.id})"><img src="../assets/icons/icons8-menos-50.png"></div>
                         <div class="number">${item.numberOfUnits}</div>
-                        <div class="btn plus" onclick="changeNumberOfUnits('plus', ${item.id})">+</div>           
+                        <div class="btn plus" onclick="changeNumberOfUnits('plus', ${item.id})"><img src="../assets/icons/icons8-más-24.png"></div>           
                     </div>
                 </div>
         `;
@@ -207,3 +222,42 @@ for (i = 0; i < btns.length; i++) {
         });
     });
 };
+
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------- */
+
+/* Audio Icon */
+
+
+
+let audio = document.getElementById('audioShop');
+audio.volume = 0.1;
+
+let audioIcon = document.getElementById('audioIcon');
+audioIcon.innerHTML= `
+    <img id="audio" src="../assets/icons/icons8-volumen-alto-30.png"/>
+`;
+
+let toggle = false;
+function changeAudioIcon() {
+    if (toggle === true) {
+        document.getElementById('audio').src  = '../assets/icons/icons8-volumen-alto-30.png'; 
+    } else {
+       document.getElementById('audio').src = '../assets/icons/icons8-mudo-30.png';
+    }
+    toggle = !toggle; 
+}
+
+//Mute
+
+function toggleMute() {
+    let myAudio = document.getElementById('audioShop');
+    myAudio.muted = !myAudio.muted;
+ }
+
+audioIcon.addEventListener("click", () => {
+    toggleMute();
+    changeAudioIcon();
+});
+

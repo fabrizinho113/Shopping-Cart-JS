@@ -79,6 +79,6 @@ const products = [
         imgSrc: "./assets/img/fifa-street-cover.png",
         console: "pstwo",
         consoleIcon: "./assets/icons/icons8-ps2-50.png"
-    }
+    },
 
 ]
