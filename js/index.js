@@ -236,15 +236,15 @@ audio.volume = 0.1;
 
 let audioIcon = document.getElementById('audioIcon');
 audioIcon.innerHTML= `
-    <img id="audio" src="../assets/icons/icons8-volumen-alto-30.png"/>
+    <img id="audio" src="./assets/icons/icons8-volumen-alto-30.png"/>
 `;
 
 let toggle = false;
 function changeAudioIcon() {
     if (toggle === true) {
-        document.getElementById('audio').src  = '../assets/icons/icons8-volumen-alto-30.png'; 
+        document.getElementById('audio').src  = './assets/icons/icons8-volumen-alto-30.png'; 
     } else {
-       document.getElementById('audio').src = '../assets/icons/icons8-mudo-30.png';
+       document.getElementById('audio').src = './assets/icons/icons8-mudo-30.png';
     }
     toggle = !toggle; 
 }
